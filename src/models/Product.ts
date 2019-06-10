@@ -10,7 +10,16 @@ export const ProductModel = types
     url: types.maybe(types.string),
     description: types.maybe(types.string),
     reviewUrl: types.maybe(types.string),
-    amazonUrl: types.maybe(types.string)
+    amazonUrl: types.maybe(types.string),
+    rssUrl: types.maybe(types.string),
+    rating: types.maybe(types.number),
+    designRating: types.maybe(types.number),
+    featuresRating: types.maybe(types.number),
+    performanceRating: types.maybe(types.number),
+    batteryRating: types.maybe(types.number),
+    ratingBlurb: types.maybe(types.string),
+    soundRating: types.maybe(types.number),
+    valueRating: types.maybe(types.number)
   }).views(self => ({
     get averageDays() {
       if (!self.versions) return 0

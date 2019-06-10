@@ -40,6 +40,13 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-pro-6/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-pro-6-review/",
       amazonUrl: "https://amzn.to/2Xwhreg",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+pro&FORM=HDRSC6&format=rss",
+      rating: 8.2,
+      designRating: 8,
+      featuresRating: 8,
+      performanceRating: 9,
+      batteryRating: 9,
+      ratingBlurb: "The latest Surface Pro tablet doesn't make any radical design changes, but the performance jump makes it viable as a mainstream performance laptop replacement.",
       description: "Ultra-light and versatile. Get productive your way with new Surface Pro 6 — now faster than ever with the latest 8th Generation Intel&copy; Core&tm; processor and the full Windows 10 Home experience."
     }, {
       familyName: "Surface Book",
@@ -65,6 +72,12 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-book-2/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-book-2-review/",
       amazonUrl: "https://amzn.to/2WoqCfb",
+      rating: 8.3,
+      designRating: 8,
+      featuresRating: 9,
+      performanceRating: 8,
+      batteryRating: 9,
+      ratingBlurb: "The Surface Book 2 is a satisfying sequel, but like many sequels, it may be trying to broadly serve too many audiences.",
       description: "Surface Book 2 is the most powerful Surface laptop ever; built with power and versatility to be a laptop, tablet, and portable studio all-in-one."
     }, {
       familyName: "Surface Laptop",
@@ -86,6 +99,13 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-laptop-2/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-laptop-2-review/",
       amazonUrl: "https://amzn.to/2Wv8ipM",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+laptop&FORM=HDRSC6&format=rss",
+      rating: 8.2,
+      designRating: 9,
+      featuresRating: 7,
+      performanceRating: 8,
+      batteryRating: 8,
+      ratingBlurb: "Microsoft's Surface Laptop 2 gets a big speed boost and a new color option, but is otherwise a minimal update to the first version.",
       description: "Style and speed. Go beyond the traditional with Surface Laptop 2. Featuring improved performance and the full Windows 10 Home experience, slip it in your bag and make every day more productive."
     }, {
       familyName: "Surface Go",
@@ -116,6 +136,13 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-go/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-go-review/",
       amazonUrl: "https://amzn.to/2Ir5b8s",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+Go&FORM=HDRSC6&format=rss",
+      rating: 7.5,
+      designRating: 8,
+      featuresRating: 7,
+      performanceRating: 7,
+      batteryRating: 6,
+      ratingBlurb: "The new Microsoft Surface Go is the perfect size for casual coffee-shop computing, but getting the full experience quickly drives up the price.",
       description: "New Surface Go is perfect for all your daily tasks, giving you laptop performance, tablet portability, and a stunning touchscreen with the power of Windows 10 Home in S mode."
     }, {
       familyName: "Surface Studio",
@@ -135,6 +162,12 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-studio-2/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-studio-2-review/",
       amazonUrl: "https://amzn.to/2K6mmPN",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+studio&FORM=HDRSC6&format=rss",
+      rating: 8.5,
+      designRating: 9,
+      featuresRating: 8,
+      performanceRating: 8,
+      ratingBlurb: "Remaining the leader for intensive stylus input, the Microsoft Studio 2 seamlessly melds form and function for professional art and design. But it has a few weaknesses that might be deal breakers for people who need a lot of fast storage or more power.",
       description: "The ultimate creative studio. Let your ideas flow with brilliant color, blazing graphics, faster processors, intuitive tools, and a stunning, adjustable 28” display."
     }, {
       familyName: "Surface Hub",
@@ -150,6 +183,7 @@ export const productStore = ProductStore.create({
       ],
       category: "Desktop/Hub",
       url: "https://www.microsoft.com/en-us/surface/business/surface-hub-2",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+hub&FORM=HDRSC6&format=rss",
       description: "Built for team collaboration in the modern workplace. Enable teamwork anywhere with new Surface Hub 2S, an all-in-one digital whiteboard, meetings platform, and collaborative computing device that brings the power of Windows 10 to teamwork."
     }, {
       familyName: "Surface Headphones",
@@ -165,6 +199,13 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-headphones/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-headphones-review/",
       amazonUrl: "https://amzn.to/2K8cPYu",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+headphones+studio&FORM=HDRSC6&format=rss",
+      rating: 7.9,
+      designRating: 8,
+      featuresRating: 9,
+      soundRating: 7,
+      valueRating: 7,
+      ratingBlurb: "The Surface Headphones don't quite match Bose and Sony noise-canceling headphones, but they're a strong freshman effort with some compelling feature and design elements.",
       description: "The smarter way to listen. Music and calls sound spectacular with active noise cancellation, rich audio, Bluetooth connectivity, and on-ear touch controls."
     }, {
       familyName: "Surface Pen",
@@ -190,6 +231,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-pen/",
       amazonUrl: "https://amzn.to/2KD5DTD",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+pen&FORM=HDRSC6&format=rss",
       description: "Create without limits. New Surface Pen is better and faster than ever, with precision ink on one end and a rubber eraser on the other — plus tilt for shading,3 greater sensitivity, and virtually no lag."
     }, {
       familyName: "Surface Dial",
@@ -204,6 +246,7 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-dial/",
       reviewUrl: "https://www.cnet.com/reviews/microsoft-surface-dial-preview/",
       amazonUrl: "https://amzn.to/2IwA9Mn",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+dial&FORM=HDRSC6&format=rss",
       description: "Surface Dial is a completely new way to interact with technology and create in the most natural, immersive way. Store, customize, access, navigate, and reimagine physical tools in the digital world – from concept to creation."
     }, {
       familyName: "Surface Signature Type Cover",
@@ -221,6 +264,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-pro-signature-type-cover/",
       amazonUrl: "https://amzn.to/2I62Qkj",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+signature+type+cover&FORM=HDRSC6&format=rss",
       description: "Our Most luxurious Surface Pro keyboard and cover. Add a touch of luxury to everyday tasks with the new Surface Pro Signature Type Cover in next-generation Alcantara material — a perfect blend of sophisticated style, comfort, and technology."
     }, {
       familyName: "Surface Pro Type Cover",
@@ -242,6 +286,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-pro-type-cover/",
       amazonUrl: "https://amzn.to/2ItxTFB",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+type+cover&FORM=HDRSC6&format=rss",
       description: "Add a touch of style to everyday tasks with the redesigned Surface Pro Type Cover, a perfect blend of elegance, comfort and technology."
     }, {
       familyName: "Surface Go Signature Type Cover",
@@ -255,6 +300,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-go-signature-type-cover/",
       amazonUrl: "https://amzn.to/2K8n5jE",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+go+signature+type+cover&FORM=HDRSC6&format=rss",
       description: "Pair Surface Go Signature Type Cover with Surface Go for a full-keyboard experience anywhere. Available in Black, plus Platinum, Burgundy, and Cobalt Blue in Alcantara&reg;."
     }, {
       familyName: "Surface Keyboard",
@@ -268,6 +314,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-keyboard/",
       amazonUrl: "https://amzn.to/2XzelGc",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+keyboard&FORM=HDRSC6&format=rss",
       description: "Meticulously crafted, just like Surface with a sleek and simple design. Optimized feedback and return force."
     }, {
       familyName: "Surface Mouse",
@@ -281,6 +328,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-mouse/",
       amazonUrl: "https://amzn.to/2Ip4fkM",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+mouse&FORM=HDRSC6&format=rss",
       description: "Meticulously crafted, just like Surface with a leek, simple design. Metal scroll wheel."
     }, {
       familyName: "Surface Mobile Mouse",
@@ -294,6 +342,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-mobile-mouse/",
       amazonUrl: "https://amzn.to/2KAzxrE",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+mobile+mouse&FORM=HDRSC6&format=rss",
       description: "Light and portable, the new Surface Mobile Mouse delivers seamless scrolling and cord-free Bluetooth connectivity. Available in 3 rich colors."
     }, {
       familyName: "Surface Arc Mouse",
@@ -307,6 +356,7 @@ export const productStore = ProductStore.create({
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-arc-mouse/",
       amazonUrl: "https://amzn.to/2WXsyjh",
+      rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+arc+mouse&FORM=HDRSC6&format=rss",
       description: "Slim, light, and ready to travel, Surface Arc Mouse is designed to conform to your hand and snaps flat to fit easily in your bag. Connects via Bluetooth."
     }
   ]

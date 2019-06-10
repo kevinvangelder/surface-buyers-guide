@@ -16,24 +16,43 @@ const SECTION = {
 const DAYS: any = {
   overdue: {
     color: color.darkTan,
-    fontWeight: "700"
+    fontWeight: "700",
+    alignSelf: "center",
+    marginLeft: 10
   },
   wait: {
     color: color.shiraz,
-    fontWeight: "700"
+    fontWeight: "700",
+    alignSelf: "center",
+    marginLeft: 10
   },
   buy: {
     color: color.limeade,
-    fontWeight: "700"
+    fontWeight: "700",
+    alignSelf: "center",
+    marginLeft: 10
   },
   caution: {
     color: color.lightning,
-    fontWeight: "700"
+    fontWeight: "700",
+    alignSelf: "center",
+    marginLeft: 10
   },
   neutral: {
     color: color.gray,
-    fontWeight: "700"
+    fontWeight: "700",
+    alignSelf: "center",
+    marginLeft: 10
   }
+}
+const ROW: any = {
+  flexDirection: "row",
+  display: "flex"
+}
+const FLEX_LEFT_FIXED: any = {
+  flexDirection: "row",
+  display: "flex",
+  width: 220
 }
 const IMAGES: any = {
   "Surface Pro": require("../../images/Surface-Pro-6.jpg"),
@@ -65,7 +84,7 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
     const { product, k } = this.props
     return (
       <section style={SECTION} key={k}>
-        <div style={{flexDirection: "row", display: "flex"}}>
+        <div style={ROW}>
           {IMAGES[product.familyName] && <img src={IMAGES[product.familyName]} style={{width: 400, objectFit: "cover", objectPosition: "center"}} />}
           <div style={{flex: 1, marginLeft: 16}}>
             <Text variant="xxLarge" block>{product.familyName}</Text>
@@ -74,34 +93,129 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
             {product.currentVersion.price && <Text variant="large" style={{marginBottom: 16}} block>${product.currentVersion.price}</Text>}
             {product.description && <Text block style={{marginBottom: 16}}>{product.description}</Text>}
             {product.url && <PrimaryButton href={product.url}>Buy Now</PrimaryButton>}
-            {product.reviewUrl && <Button href={product.reviewUrl} style={{marginLeft: 16}}>Product Review</Button>}
             {product.amazonUrl && <Link href={product.amazonUrl} style={{marginLeft: 16, paddingTop: 4, display: "inline-block"}}>Amazon</Link>}
           </div>
         </div>
         <Separator />
-        <div style={{flexDirection: "row", display: "flex"}}>
-          <div style={{paddingRight: 16}}>
-            <Text block>{product.currentVersion.versionName}: {product.currentVersion.prettyDate}</Text>
-            <progress value={product.currentDays} max={product.maximumDays} className={product.recommendation.recommendation} style={{width: 340}} /><Text variant="xLarge" style={DAYS[product.recommendation.recommendation]}> {product.currentDays}</Text>
+        <div style={ROW}>
+          <div style={{paddingRight: 10, flex: 1}}>
+            <div style={ROW}>
+              <div style={FLEX_LEFT_FIXED}>
+                <Text variant="xLarge" style={{alignSelf: "center", fontWeight: 500}}>Days since last release</Text>
+              </div>
+              <div style={{width: 300}}>
+                <Text block>{product.currentVersion.versionName}: {product.currentVersion.prettyDate}</Text>
+                <progress value={product.currentDays} max={product.maximumDays} className={product.recommendation.recommendation} style={{width: 250}} /><Text variant="xLarge" style={DAYS[product.recommendation.recommendation]}>{product.currentDays}</Text>
+              </div>
+            </div>
             <Separator />
-            <Text block>Average:</Text>
-            <progress value={product.averageDays} max={product.maximumDays} style={{width: 340}} /><Text variant="xLarge"> {product.averageDays}</Text>
+            <div style={ROW}>
+              <div style={FLEX_LEFT_FIXED}>
+                <Text variant="xLarge" style={{fontWeight: 500}}>Average</Text>
+              </div>
+              <div style={{width: 300}}>
+                <progress value={product.averageDays} max={product.maximumDays} style={{width: 250, marginTop: 8}} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.averageDays}</Text>
+              </div>
+            </div>
             <Separator />
-            {product.versions.reverse().slice(1).map((v: any) => {
+            {product.versions.reverse().slice(1).map((v: any, k: number) => {
               return (
-                <div>
-                  <Text block>{v.versionName}: {v.prettyDate}</Text>
-                  <progress value={v.nextReleaseDays} max={product.maximumDays} style={{width: 340}} /><Text variant="xLarge"> {v.nextReleaseDays}</Text>
+                <div style={ROW}>
+                  <div style={FLEX_LEFT_FIXED}>
+                    {k === 0 && <Text variant="xLarge" style={{fontWeight: 500}}>Previous Releases</Text>}
+                  </div>
+                  <div style={{marginBottom: 16, width: 300}}>
+                    <Text block>{v.versionName}: {v.prettyDate}</Text>
+                    <progress value={v.nextReleaseDays} max={product.maximumDays} style={{width: 250}} /><Text variant="xLarge" style={{marginLeft: 10}}>{v.nextReleaseDays}</Text>
+                  </div>
                 </div>
               )
             })}
           </div>
           <Separator vertical />
-          <div>
-
-          </div>
+          {product.rating && this.renderProductReview()}
+          {!product.rating && this.renderReviewUnavailable()}
         </div>
       </section>
+    )
+  }
+
+  ratingStyle = (rating: number | null | undefined): string => {
+    if (!rating || rating < 2.5) {
+      return "overdue"
+    } else if (rating >= 2.5 && rating < 5) {
+      return "wait"
+    } else if (rating >= 5 && rating < 7.5) {
+      return "caution"
+    } else if (rating >= 7.5) {
+      return "buy"
+    }
+    return "overdue"
+  }
+
+  renderReviewUnavailable = () => {
+    return (
+      <div style={{marginLeft: 16, width: 406}}>
+        <Text variant="xLarge" style={{fontWeight: 500}} block>Product Review Unavailable</Text>
+      </div>
+    )
+  }
+
+  renderProductReview = () => {
+    const { product } = this.props
+    return (
+      <div style={{marginLeft: 16}}>
+        <Text variant="xLarge" style={{fontWeight: 500}} block>Product Review</Text>
+        <Text block style={{marginTop: 10}}>By <Link href={product.reviewUrl}>CNet</Link></Text>
+        <Text block style={{marginTop: 10}}>{product.ratingBlurb}</Text>
+        <Text variant="large" block style={{marginTop: 10}}>Overall</Text>
+        {product.rating && <div style={ROW}>
+          <progress value={product.rating} max={10} style={{marginTop: 8, height: 14, width: 240}} className={this.ratingStyle(product.rating)} /><Text variant="xLarge" style={DAYS[this.ratingStyle(product.rating)]}>{product.rating}</Text>
+        </div>}
+        {product.designRating && 
+        <div>
+          <Text block style={{marginTop: 10}}>Design</Text>
+          <div style={ROW}>
+            <progress value={product.designRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.designRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.designRating}</Text>
+          </div>
+        </div>}
+        {product.featuresRating &&
+        <div>
+          <Text block>Features</Text>
+          <div style={ROW}>
+            <progress value={product.featuresRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.featuresRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.featuresRating}</Text>
+          </div>
+        </div>}
+        {product.performanceRating &&
+        <div>
+          <Text block>Performance</Text>
+          <div style={ROW}>
+            <progress value={product.performanceRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.performanceRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.performanceRating}</Text>
+          </div>
+        </div>}
+        {product.batteryRating &&
+        <div>
+          <Text block>Battery</Text>
+          <div style={ROW}>
+            <progress value={product.batteryRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.batteryRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.batteryRating}</Text>
+          </div>
+        </div>}
+        {product.soundRating &&
+        <div>
+          <Text block>Sound</Text>
+          <div style={ROW}>
+            <progress value={product.soundRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.soundRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.soundRating}</Text>
+          </div>
+        </div>}
+        {product.valueRating &&
+        <div>
+          <Text block>Value</Text>
+          <div style={ROW}>
+            <progress value={product.valueRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.valueRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.valueRating}</Text>
+          </div>
+        </div>}
+        <Button href={product.reviewUrl}>Read Full Review</Button>
+      </div>
     )
   }
 }
