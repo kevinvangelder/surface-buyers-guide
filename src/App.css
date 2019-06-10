@@ -1,33 +1,40 @@
-.App {
-  text-align: center;
+progress {
+  background-color: #e4e4e4;
+  border-width: 0;
+  border-radius: 8px;
+  height: 16px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+progress::-moz-progress-bar, progress::-webkit-progress-bar {
+  background-color: #b8b8b8;
+  border-radius: 8px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+progress.neutral::-moz-progress-bar, progress.neutral::-webkit-progress-bar {
+  background-color: #808080;
+  border-radius: 8px;
 }
-
-.App-link {
-  color: #61dafb;
+progress.caution::-moz-progress-bar, progress.caution::-webkit-progress-bar {
+  background-color: #FFC125;
+  border-radius: 8px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+progress.caution {
+  background-color: #ffecbc;
+}
+progress.buy::-moz-progress-bar, progress.buy::-webkit-progress-bar {
+  background-color: #66BC00;
+  border-radius: 8px;
+}
+progress.buy {
+  background-color: #edffd6;
+}
+progress.wait::-moz-progress-bar, progress.wait::-webkit-progress-bar {
+  background-color: #d60622;
+  border-radius: 8px;
+}
+progress.wait {
+  background-color: #d6929b;
+}
+progress.overdue::-moz-progress-bar, progress.overdue::-webkit-progress-bar {
+  background-color: #74111d;
+  border-radius: 8px;
 }
