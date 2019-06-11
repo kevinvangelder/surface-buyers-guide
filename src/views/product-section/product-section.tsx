@@ -72,6 +72,13 @@ const IMAGES: any = {
   "Surface Mobile Mouse": require("../../images/Surface-Mobile-Mouse.jpg"),
   "Surface Arc Mouse": require("../../images/Surface-Arc-Mouse.png"),
 }
+const ALT: any = {
+  buy: "Buy now, recently updated",
+  neutral: "Neutral, mid-product cycle",
+  caution: "Caution, nearing end of product cycle",
+  wait: "Wait, updates soon",
+  overdue: "Don't buy, updates overdue"
+}
 
 interface ProductSectionProps {
   product: Product,
@@ -85,7 +92,7 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
     return (
       <section style={SECTION} key={k}>
         <div style={ROW}>
-          {IMAGES[product.familyName] && <img src={IMAGES[product.familyName]} style={{width: 400, objectFit: "cover", objectPosition: "center"}} />}
+          {IMAGES[product.familyName] && <img src={IMAGES[product.familyName]} style={{width: 400, objectFit: "cover", objectPosition: "center"}} alt={`Should I buy ${product.currentVersion.versionName}? Recommendation: ${ALT[product.recommendation.recommendation]}`} />}
           <div style={{flex: 1, marginLeft: 16}}>
             <Text variant="xxLarge" block>{product.familyName}</Text>
             <Label preset={product.recommendation.recommendation} rationale={product.recommendation.rationale} /><br />

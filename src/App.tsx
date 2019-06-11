@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Text, Link, FontWeights, Pivot, PivotItem, PivotLinkFormat, PivotLinkSize, Separator, Layer, Button, PrimaryButton } from 'office-ui-fabric-react';
+import { Stack, Text, Link, FontWeights, Pivot, PivotItem, PivotLinkFormat, PivotLinkSize, Separator } from 'office-ui-fabric-react';
 import { observer } from "mobx-react";
 import "./App.css"
 import { ProductSection } from './views/product-section';
@@ -31,7 +31,9 @@ export const App = observer(props => (
           }
         }}
       >
-        <Text variant="mega" block>Surface Buyer's Guide</Text>
+        <Text variant="mega" block style={{marginBottom: 24}}>Surface Buyer's Guide</Text>
+        <Text block variant="xLarge" style={{marginBottom: 16}}>Should I buy a Surface product or wait until the next version?</Text>
+        <Text block style={{marginBottom: 16}}>Based on the release cycle of each product we give a recommendation of whether to purchase it now or wait until the next update. We make no guarantees regarding the accuracy of our recommendations, however we hope you will find the information useful as you make your purchasing decision. We are able to provide this information without advertisements or a membership fee through affiliate links to the recommended products. If you find any mistaken or missing information please <Link href="https://github.com/kevinvangelder/surface-buyers-guide/issues">report an issue</Link>.</Text>
         <Pivot linkFormat={PivotLinkFormat.tabs} linkSize={PivotLinkSize.large} style={{display: "block", width: "100%", marginTop: "16px"}}>
           <PivotItem headerText="Tablet/Laptop">
             {props.productStore.tabletLaptops.map((p: Product, k: number) => {
@@ -66,13 +68,24 @@ export const App = observer(props => (
             padding: "40px 0" 
           }
         }}>
-        <Text>A service of <Link href="http://vangelder.tech">VanGelder Technologies</Link><br />inspired by <Link href="https://buyersguide.macrumors.com/">MacRumors Buyer's Guide</Link></Text>
-        <Text>Images provided by <Link href="https://news.microsoft.com/presskits/surface/">Microsoft</Link></Text>
-        <Text><Link href="https://www.microsoft.com/en-us/surface">Surface</Link> is a registered Trademark of <Link href="https://microsoft.com">Microsoft</Link></Text>
-        <Text>Built with <Link href="https://developer.microsoft.com/en-us/fabric">Microsoft Fabric</Link></Text>
-        <Text>This site is not associated with or endorsed by Microsoft</Text>
-        <Text><Link>Report an issue</Link></Text>
-        <Text>Find your next wallpaper at <Link href="https://wallpaperhub.app/">WallpaperHub</Link></Text>
+        <div style={{flexDirection: "row", display: "flex", width: 1008, flex: 1}}>
+          <div style={{flexDirection: "column", flex: 1}}>
+            <Text block variant="large" style={{marginBottom: 10}}>About</Text>
+            <Text block style={{marginBottom: 10}}>A service of <Link href="http://vangelder.tech">VanGelder Technologies</Link><br />inspired by <Link href="https://buyersguide.macrumors.com/">MacRumors Buyer's Guide</Link></Text>
+            <Text block style={{marginBottom: 10}}>This site is not endorsed by Microsoft</Text>
+            <Text block style={{marginBottom: 10}}><Link href="https://github.com/kevinvangelder/surface-buyers-guide/issues">Report an issue</Link></Text>
+          </div>
+          <div style={{flexDirection: "column", flex: 1}}>
+            <Text block variant="large" style={{marginBottom: 10}}>Legal</Text>
+            <Text block style={{marginBottom: 10}}><Link href="https://www.microsoft.com/en-us/surface">Surface</Link> is a registered &trade; of <Link href="https://microsoft.com">Microsoft</Link></Text>
+            <Text block style={{marginBottom: 10}}>Images provided and &copy; by <Link href="https://news.microsoft.com/presskits/surface/">Microsoft</Link></Text>
+            <Text block style={{marginBottom: 10}}>Built with <Link href="https://developer.microsoft.com/en-us/fabric">Microsoft Fabric</Link></Text>
+          </div>
+          <div style={{flexDirection: "column", flex: 1}}>
+            <Text block variant="large" style={{marginBottom: 10}}>Sites We ❤️</Text>
+            <Text block style={{marginBottom: 10}}>Find your next wallpaper at <Link href="https://wallpaperhub.app/">WallpaperHub</Link></Text>
+          </div>
+        </div>
       </Stack>
     </Stack>
   </div>
