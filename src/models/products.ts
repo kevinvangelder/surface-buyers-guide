@@ -32,8 +32,14 @@ export const productStore = ProductStore.create({
         }, {
           versionName: "Surface Pro 6",
           releaseDate: new Date("10/16/2018"),
+          daysUntilNextRelease: 371,
           priceLow: 899,
           priceHigh: 2199
+        }, {
+          versionName: "Surface Pro 7",
+          releaseDate: new Date("10/22/19"),
+          priceLow: 749,
+          priceHigh: 2299
         }
       ],
       category: "Tablet/Laptop",
@@ -47,7 +53,7 @@ export const productStore = ProductStore.create({
       performanceRating: 9,
       batteryRating: 9,
       ratingBlurb: "The latest Surface Pro tablet doesn't make any radical design changes, but the performance jump makes it viable as a mainstream performance laptop replacement.",
-      description: "Ultra-light and versatile. Get productive your way with new Surface Pro 6 — now faster than ever with the latest 8th Generation Intel&copy; Core&tm; processor and the full Windows 10 Home experience."
+      description: "Ultra-light and versatile; more powerful than ever, Surface Pro 7 features a powerful Intel® Core™ processor, improved battery and graphics, and more multitasking connections."
     }, {
       familyName: "Surface Book",
       versions: [
@@ -91,8 +97,14 @@ export const productStore = ProductStore.create({
         }, {
           versionName: "Surface Laptop 2",
           releaseDate: new Date("10/16/2018"),
+          daysUntilNextRelease: 371,
           priceLow: 999,
           priceHigh: 2699
+        }, {
+          versionName: "Surface Laptop 3",
+          releaseDate: new Date("10/22/2019"),
+          priceLow: 999,
+          priceHigh: 2399
         }
       ],
       category: "Tablet/Laptop",
@@ -106,28 +118,27 @@ export const productStore = ProductStore.create({
       performanceRating: 8,
       batteryRating: 8,
       ratingBlurb: "Microsoft's Surface Laptop 2 gets a big speed boost and a new color option, but is otherwise a minimal update to the first version.",
-      description: "Style and speed. Go beyond the traditional with Surface Laptop 2. Featuring improved performance and the full Windows 10 Home experience, slip it in your bag and make every day more productive."
+      description: "Style and speed; new Surface Laptop 3 fuels your ideas and reflects your style with a thin, light design, choice of colors,1 2 keyboard finishes, and 2 sizes — a vibrant 13.5\" or new 15\" touchscreen."
+    }, {
+      familyName: "Surface Pro X",
+      versions: [
+        {
+          versionName: "Surface Pro X",
+          releaseDate: new Date("11/15/2019"),
+          priceLow: 999,
+          priceHigh: 1799
+        }
+      ],
+      category: "Tablet/Laptop",
+      url: "",
+      amazonUrl: "",
+      description: "Ultra-thin and always connected; wherever the day takes you, be ready for anything with Surface Pro X. Featuring blazing-fast LTE connectivity, our thinnest Surface stands out with industry-leading performance and a stunning, virtually edge-to-edge 13\" touchscreen.",
     }, {
       familyName: "Surface Go",
       versions: [
         {
-          versionName: "Surface",
-          releaseDate: new Date("10/26/2012"),
-          daysUntilNextRelease: 361
-        }, {
-          versionName: "Surface 2",
-          releaseDate: new Date("10/22/2013"),
-          daysUntilNextRelease: 560
-        }, {
-          versionName: "Surface 3",
-          releaseDate: new Date("5/5/2015"),
-          daysUntilNextRelease: 1185,
-          priceLow: 499,
-          priceHigh: 599
-        }, {
           versionName: "Surface Go",
           releaseDate: new Date("8/2/2018"),
-          daysUntilNextRelease: 310,
           priceLow: 399,
           priceHigh: 549
         }
@@ -208,6 +219,19 @@ export const productStore = ProductStore.create({
       ratingBlurb: "The Surface Headphones don't quite match Bose and Sony noise-canceling headphones, but they're a strong freshman effort with some compelling feature and design elements.",
       description: "The smarter way to listen. Music and calls sound spectacular with active noise cancellation, rich audio, Bluetooth connectivity, and on-ear touch controls."
     }, {
+      familyName: "Surface Earbuds",
+      versions: [
+        {
+          versionName: "Surface Earbuds",
+          releaseDate: new Date("10/22/2019"),
+          price: 249
+        }
+      ],
+      category: "Accessories",
+      url: "",
+      amazonUrl: "",
+      description: "Featuring an ultra-comfortable design, intuitive touch and voice controls, screen-free access to Office 365, immersive sound for music and calls, and all-day battery."
+    }, {
       familyName: "Surface Pen",
       versions: [
         {
@@ -225,14 +249,19 @@ export const productStore = ProductStore.create({
         }, {
           versionName: "Surface Pen Gen 4",
           releaseDate: new Date("6/15/2017"),
+          daysUntilNextRelease: 829,
+          price: 99.99
+        }, {
+          versionName: "Surface Pen Gen 5",
+          releaseDate: new Date("10/22/2019"),
           price: 99.99
         }
       ],
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-pen/",
-      amazonUrl: "https://amzn.to/2KD5DTD",
+      amazonUrl: "https://amzn.to/2N9Ah6O",
       rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+pen&FORM=HDRSC6&format=rss",
-      description: "Create without limits. New Surface Pen is better and faster than ever, with precision ink on one end and a rubber eraser on the other — plus tilt for shading,3 greater sensitivity, and virtually no lag."
+      description: "Surface Pen is better and faster than ever, with tilt for shading, greater sensitivity, and virtually no lag to help you capture your thoughts and get more done."
     }, {
       familyName: "Surface Dial",
       versions: [
@@ -249,7 +278,7 @@ export const productStore = ProductStore.create({
       rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+dial&FORM=HDRSC6&format=rss",
       description: "Surface Dial is a completely new way to interact with technology and create in the most natural, immersive way. Store, customize, access, navigate, and reimagine physical tools in the digital world – from concept to creation."
     }, {
-      familyName: "Surface Signature Type Cover",
+      familyName: "Surface Pro Signature Type Cover",
       versions: [
         {
           versionName: "Sigature Type Cover Gen 1",
@@ -258,6 +287,11 @@ export const productStore = ProductStore.create({
         }, {
           versionName: "Signature Type Cover Gen 2",
           releaseDate: new Date("6/15/2017"),
+          price: 159.99,
+          daysUntilNextRelease: 859
+        }, {
+          versionName: "Signature Type Cover Gen 3",
+          releaseDate: new Date("10/22/2019"),
           price: 159.99
         }
       ],
@@ -265,7 +299,7 @@ export const productStore = ProductStore.create({
       url: "https://www.microsoft.com/en-us/p/surface-pro-signature-type-cover/",
       amazonUrl: "https://amzn.to/2I62Qkj",
       rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+signature+type+cover&FORM=HDRSC6&format=rss",
-      description: "Our Most luxurious Surface Pro keyboard and cover. Add a touch of luxury to everyday tasks with the new Surface Pro Signature Type Cover in next-generation Alcantara material — a perfect blend of sophisticated style, comfort, and technology."
+      description: "For a comfortable typing experience anywhere, pair Surface Pro Signature Type Cover with Surface Pro 7. Sleek and compact, it also includes backlit keys and a large trackpad."
     }, {
       familyName: "Surface Pro Type Cover",
       versions: [
@@ -288,6 +322,45 @@ export const productStore = ProductStore.create({
       amazonUrl: "https://amzn.to/2ItxTFB",
       rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+type+cover&FORM=HDRSC6&format=rss",
       description: "Add a touch of style to everyday tasks with the redesigned Surface Pro Type Cover, a perfect blend of elegance, comfort and technology."
+    }, {
+      familyName: "Surface Pro X Signature Keyboard With Slim Pen Bundle",
+      versions: [
+        {
+          versionName: "Surface Pro X Signature Keyboard With Slim Pen Bundle",
+          releaseDate: new Date("11/5/2019"),
+          price: 269.99
+        }
+      ],
+      category: "Accessories",
+      url: "",
+      amazonUrl: "https://amzn.to/362asyk",
+      description: "Next-level versatility comes in the perfect pair. Surface Slim Pen stores securely and recharges in the premium Surface Pro X Signature Keyboard, featuring a large glass trackpad and luxurious, Alcantara&reg; material covering"
+    }, {
+      familyName: "Surface Pro X Keyboard",
+      versions: [
+        {
+          versionName: "Surface Pro X Keyboard",
+          releaseDate: new Date("11/5/2019"),
+          price: 139.99
+        }
+      ],
+      category: "Accessories",
+      url: "",
+      amazonUrl: "https://amzn.to/2N8wqa1",
+      description: "For a comfortable typing experience anywhere, pair Surface Pro X Keyboard with Surface Pro X. Sleek and compact, it also features a large trackpad for precise navigation."
+    }, {
+      familyName: "Surface Slim Pen",
+      versions: [
+        {
+          versionName: "Surface Slim Pen",
+          releaseDate: new Date("11/5/2019"),
+          price: 149.99
+        }
+      ],
+      category: "Accessories",
+      url: "https://www.microsoft.com/en-us/p/surface-slim-pen/",
+      amazonUrl: "https://amzn.to/2p8phPc",
+      description: "Write, sketch, charge, and repeat with rechargeable Surface Slim Pen, featuring tilt for shading, exceptional pressure sensitivity, and virtually no lag."
     }, {
       familyName: "Surface Go Signature Type Cover",
       versions: [
@@ -350,6 +423,11 @@ export const productStore = ProductStore.create({
         {
           versionName: "Surface Arc Mouse",
           releaseDate: new Date("6/20/2014"),
+          daysUntilNextRelease: 1950,
+          price: 79.99
+        }, {
+          versionName: "Surface Arc Mouse Gen 2",
+          releaseDate: new Date("10/22/2019"),
           price: 79.99
         }
       ],

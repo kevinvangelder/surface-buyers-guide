@@ -34,6 +34,22 @@ export const ProductModel = types
       }
       return average
     },
+    get averagePriceLow() {
+      if (!self.versions) return 0
+      if (self.versions.length === 1) return self.versions[0].priceLow
+      let sum = 0
+      const prices = self.versions.filter(v => v.priceLow && v.priceLow > 0)
+      prices.map(p => sum += p.priceLow || 0)
+      return Math.round(sum / (prices.length))
+    },
+    get averagePriceHigh() {
+      if (!self.versions) return 0
+      if (self.versions.length === 1) return self.versions[0].priceHigh
+      let sum = 0
+      const prices = self.versions.filter(v => v.priceHigh && v.priceHigh > 0)
+      prices.map(p => sum += p.priceHigh || 0)
+      return Math.round(sum / (prices.length))
+    },
     get maximumDays() {
       return Math.max(...self.versions.map(v => v.nextReleaseDays))
     },

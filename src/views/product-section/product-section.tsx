@@ -1,6 +1,6 @@
 import * as React from "react"
 import { color } from "../../theme"
-import { Text, PrimaryButton, Separator, Button, Link } from "../../../node_modules/office-ui-fabric-react";
+import { Text, PrimaryButton, Separator } from "../../../node_modules/office-ui-fabric-react";
 import { Label } from "../label";
 import { Product } from "../../models";
 
@@ -55,22 +55,27 @@ const FLEX_LEFT_FIXED: any = {
   width: 220
 }
 const IMAGES: any = {
-  "Surface Pro": require("../../images/Surface-Pro-6.jpg"),
-  "Surface Laptop": require("../../images/Surface-Laptop-2.jpg"),
+  "Surface Pro": require("../../images/Surface-Pro-7.jpg"),
+  "Surface Laptop": require("../../images/Surface-Laptop-3.jpg"),
   "Surface Book": require("../../images/Surface-Book-2.png"),
+  "Surface Pro X": require("../../images/Surface-Pro-X.jpg"),
   "Surface Go": require("../../images/Surface-Go-6.png"),
   "Surface Studio": require("../../images/Surface-Studio-2.png"),
   "Surface Hub": require("../../images/Surface-Hub-2S.png"),
   "Surface Headphones": require("../../images/Surface-Headphones.png"),
+  "Surface Earbuds": require("../../images/Surface-Earbuds.jpg"),
   "Surface Pen": require("../../images/Surface-Pen.jpg"),
+  "Surface Pro X Signature Keyboard With Slim Pen Bundle": require("../../images/Surface-Pro-X-Keyboard-Bundle.jpg"),
+  "Surface Pro X Keyboard": require("../../images/Surface-Pro-X-Keyboard.jpg"),
+  "Surface Slim Pen": require("../../images/Surface-Slim-Pen.jpg"),
   "Surface Dial": require("../../images/Surface-Dial.png"),
-  "Surface Signature Type Cover": require("../../images/Signature-Type-Cover.jpg"),
+  "Surface Pro Signature Type Cover": require("../../images/Signature-Type-Cover.jpg"),
   "Surface Pro Type Cover": require("../../images/Surface-Type-Cover.jpg"),
   "Surface Go Signature Type Cover": require("../../images/Surface-Go-Signature-Type-Cover.jpg"),
   "Surface Keyboard": require("../../images/Surface-Keyboard.png"),
   "Surface Mouse": require("../../images/Surface-Mouse.png"),
   "Surface Mobile Mouse": require("../../images/Surface-Mobile-Mouse.jpg"),
-  "Surface Arc Mouse": require("../../images/Surface-Arc-Mouse.png"),
+  "Surface Arc Mouse": require("../../images/Surface-Arc-Mouse.jpg"),
 }
 const ALT: any = {
   buy: "Buy now, recently updated",
@@ -99,8 +104,8 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
             {product.currentVersion.priceLow && product.currentVersion.priceHigh && <Text variant="large" style={{marginBottom: 16}}>${product.currentVersion.priceLow} - ${product.currentVersion.priceHigh}</Text>}
             {product.currentVersion.price && <Text variant="large" style={{marginBottom: 16}} block>${product.currentVersion.price}</Text>}
             {product.description && <Text block style={{marginBottom: 16}}>{product.description}</Text>}
-            {product.url && <PrimaryButton href={product.url}>Buy Now</PrimaryButton>}
-            {product.amazonUrl && <Link href={product.amazonUrl} style={{marginLeft: 16, paddingTop: 4, display: "inline-block"}}>Amazon</Link>}
+            {/* {product.url && <PrimaryButton href={product.url} target="_blank">Buy Now</PrimaryButton>} */}
+            {product.amazonUrl && <PrimaryButton href={product.amazonUrl} style={{marginLeft: 16}} target="_blank">Buy Now</PrimaryButton>}
           </div>
         </div>
         <Separator />
@@ -110,7 +115,7 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
               <div style={FLEX_LEFT_FIXED}>
                 <Text variant="xLarge" style={{alignSelf: "center", fontWeight: 500}}>Days since last release</Text>
               </div>
-              <div style={{width: 300}}>
+              <div style={{width: 320}}>
                 <Text block>{product.currentVersion.versionName}: {product.currentVersion.prettyDate}</Text>
                 <progress value={product.currentDays} max={product.maximumDays} className={product.recommendation.recommendation} style={{width: 250}} /><Text variant="xLarge" style={DAYS[product.recommendation.recommendation]}>{product.currentDays}</Text>
               </div>
@@ -120,7 +125,7 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
               <div style={FLEX_LEFT_FIXED}>
                 <Text variant="xLarge" style={{fontWeight: 500}}>Average</Text>
               </div>
-              <div style={{width: 300}}>
+              <div style={{width: 320}}>
                 <progress value={product.averageDays} max={product.maximumDays} style={{width: 250, marginTop: 8}} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.averageDays}</Text>
               </div>
             </div>
@@ -131,7 +136,7 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
                   <div style={FLEX_LEFT_FIXED}>
                     {k === 0 && <Text variant="xLarge" style={{fontWeight: 500}}>Previous Releases</Text>}
                   </div>
-                  <div style={{marginBottom: 16, width: 300}}>
+                  <div style={{marginBottom: 16, width: 320}}>
                     <Text block>{v.versionName}: {v.prettyDate}</Text>
                     <progress value={v.nextReleaseDays} max={product.maximumDays} style={{width: 250}} /><Text variant="xLarge" style={{marginLeft: 10}}>{v.nextReleaseDays}</Text>
                   </div>
@@ -139,90 +144,8 @@ export class ProductSection extends React.Component<ProductSectionProps, {}> {
               )
             })}
           </div>
-          <Separator vertical />
-          {product.rating && this.renderProductReview()}
-          {!product.rating && this.renderReviewUnavailable()}
         </div>
       </section>
-    )
-  }
-
-  ratingStyle = (rating: number | null | undefined): string => {
-    if (!rating || rating < 2.5) {
-      return "overdue"
-    } else if (rating >= 2.5 && rating < 5) {
-      return "wait"
-    } else if (rating >= 5 && rating < 7.5) {
-      return "caution"
-    } else if (rating >= 7.5) {
-      return "buy"
-    }
-    return "overdue"
-  }
-
-  renderReviewUnavailable = () => {
-    return (
-      <div style={{marginLeft: 16, width: 406}}>
-        <Text variant="xLarge" style={{fontWeight: 500}} block>Product Review Unavailable</Text>
-      </div>
-    )
-  }
-
-  renderProductReview = () => {
-    const { product } = this.props
-    return (
-      <div style={{marginLeft: 16}}>
-        <Text variant="xLarge" style={{fontWeight: 500}} block>Product Review</Text>
-        <Text block style={{marginTop: 10}}>By <Link href={product.reviewUrl}>CNet</Link></Text>
-        <Text block style={{marginTop: 10}}>{product.ratingBlurb}</Text>
-        <Text variant="large" block style={{marginTop: 10}}>Overall</Text>
-        {product.rating && <div style={ROW}>
-          <progress value={product.rating} max={10} style={{marginTop: 8, height: 14, width: 240}} className={this.ratingStyle(product.rating)} /><Text variant="xLarge" style={DAYS[this.ratingStyle(product.rating)]}>{product.rating}</Text>
-        </div>}
-        {product.designRating && 
-        <div>
-          <Text block style={{marginTop: 10}}>Design</Text>
-          <div style={ROW}>
-            <progress value={product.designRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.designRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.designRating}</Text>
-          </div>
-        </div>}
-        {product.featuresRating &&
-        <div>
-          <Text block>Features</Text>
-          <div style={ROW}>
-            <progress value={product.featuresRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.featuresRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.featuresRating}</Text>
-          </div>
-        </div>}
-        {product.performanceRating &&
-        <div>
-          <Text block>Performance</Text>
-          <div style={ROW}>
-            <progress value={product.performanceRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.performanceRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.performanceRating}</Text>
-          </div>
-        </div>}
-        {product.batteryRating &&
-        <div>
-          <Text block>Battery</Text>
-          <div style={ROW}>
-            <progress value={product.batteryRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.batteryRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.batteryRating}</Text>
-          </div>
-        </div>}
-        {product.soundRating &&
-        <div>
-          <Text block>Sound</Text>
-          <div style={ROW}>
-            <progress value={product.soundRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.soundRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.soundRating}</Text>
-          </div>
-        </div>}
-        {product.valueRating &&
-        <div>
-          <Text block>Value</Text>
-          <div style={ROW}>
-            <progress value={product.valueRating} max={10} style={{marginTop: 8, height: 10, width: 240}} className={this.ratingStyle(product.valueRating)} /><Text variant="xLarge" style={{marginLeft: 10}}>{product.valueRating}</Text>
-          </div>
-        </div>}
-        <Button href={product.reviewUrl}>Read Full Review</Button>
-      </div>
     )
   }
 }
