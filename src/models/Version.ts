@@ -12,7 +12,8 @@ export const VersionModel = types
     daysUntilNextRelease: types.maybeNull(types.number),
   }).views(self => ({
     get nextReleaseDays() {
-      return self.daysUntilNextRelease || differenceInDays(new Date(), self.releaseDate)
+      if (self.daysUntilNextRelease) return self.daysUntilNextRelease
+      return differenceInDays(new Date(), self.releaseDate) >= 0 ? differenceInDays(new Date(), self.releaseDate) : 0
     },
     get prettyDate() {
       return format(self.releaseDate, "MMM YYYY")
