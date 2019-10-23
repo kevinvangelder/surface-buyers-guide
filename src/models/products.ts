@@ -136,21 +136,6 @@ export const productStore = ProductStore.create({
     }, {
       familyName: "Surface Go",
       versions: [
-        // {
-        //   versionName: "Surface",
-        //   releaseDate: new Date("10/26/2012"),
-        //   daysUntilNextRelease: 361
-        // }, {
-        //   versionName: "Surface 2",
-        //   releaseDate: new Date("10/22/2013"),
-        //   daysUntilNextRelease: 560
-        // }, {
-        //   versionName: "Surface 3",
-        //   releaseDate: new Date("5/5/2015"),
-        //   daysUntilNextRelease: 1185,
-        //   priceLow: 499,
-        //   priceHigh: 599
-        // }, 
         {
           versionName: "Surface Go",
           releaseDate: new Date("8/2/2018"),
