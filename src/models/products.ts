@@ -259,7 +259,7 @@ export const productStore = ProductStore.create({
       ],
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-pen/",
-      amazonUrl: "https://amzn.to/2KD5DTD",
+      amazonUrl: "https://amzn.to/2N9Ah6O",
       rssUrl: "https://www.bing.com/news/search?q=microsoft+surface+pen&FORM=HDRSC6&format=rss",
       description: "Surface Pen is better and faster than ever, with tilt for shading, greater sensitivity, and virtually no lag to help you capture your thoughts and get more done."
     }, {
@@ -333,7 +333,7 @@ export const productStore = ProductStore.create({
       ],
       category: "Accessories",
       url: "",
-      amazonUrl: "",
+      amazonUrl: "https://amzn.to/362asyk",
       description: "Next-level versatility comes in the perfect pair. Surface Slim Pen stores securely and recharges in the premium Surface Pro X Signature Keyboard, featuring a large glass trackpad and luxurious, Alcantara&reg; material covering"
     }, {
       familyName: "Surface Pro X Keyboard",
@@ -346,7 +346,7 @@ export const productStore = ProductStore.create({
       ],
       category: "Accessories",
       url: "",
-      amazonUrl: "",
+      amazonUrl: "https://amzn.to/2N8wqa1",
       description: "For a comfortable typing experience anywhere, pair Surface Pro X Keyboard with Surface Pro X. Sleek and compact, it also features a large trackpad for precise navigation."
     }, {
       familyName: "Surface Slim Pen",
@@ -359,7 +359,7 @@ export const productStore = ProductStore.create({
       ],
       category: "Accessories",
       url: "https://www.microsoft.com/en-us/p/surface-slim-pen/",
-      amazonUrl: "",
+      amazonUrl: "https://amzn.to/2p8phPc",
       description: "Write, sketch, charge, and repeat with rechargeable Surface Slim Pen, featuring tilt for shading, exceptional pressure sensitivity, and virtually no lag."
     }, {
       familyName: "Surface Go Signature Type Cover",
